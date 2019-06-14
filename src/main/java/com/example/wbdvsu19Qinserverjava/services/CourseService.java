@@ -16,10 +16,9 @@ public class CourseService {
 	 }
 	 
 	 
-	 public List<Course> createCourse(Course course) {
+	 public void createCourse(Course course) {
 	    	courses.add(course);
-	    	
-	    	return courses;
+
 	    }
 	    
 	    
@@ -37,25 +36,24 @@ public class CourseService {
 	    }
 	    
 	    
-	    public List<Course> updateCourse(long id, Course course){
+	    public void updateCourse(long id, Course course){
 	    	
 	    	for(int i=0; i<courses.size(); i++) {
 	    		if(courses.get(i).getId()==id) {
 	    			courses.get(i).setCourse(course);
-	    			return courses;
+
 	    		}
 	    	}
-	    	return null;
+
 	    }
 	    
 	    
-	    public List<Course> deleteCourse(long id) {
+	    public void deleteCourse(long id) {
 	    	for(int i=0; i<courses.size(); i++) {
 	    		if(courses.get(i).getId()==id) {
 	    			courses.remove(i);
 	    		}
 	    	}
-	    	return courses;
 	    }
 	    
 }

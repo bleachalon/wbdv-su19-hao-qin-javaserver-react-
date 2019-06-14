@@ -17,10 +17,9 @@ public class WidgetService {
     }
     
     
-    public List<Widget> createWidget(Widget widget) {
+    public void createWidget(Widget widget) {
     	widgets.add(widget);
     	
-    	return widgets;
     }
     
     
@@ -38,25 +37,24 @@ public class WidgetService {
     }
     
     
-    public List<Widget> updateWidget(long id, Widget widget){
+    public void updateWidget(long id, Widget widget){
     	
     	for(int i=0; i<widgets.size(); i++) {
     		if(widgets.get(i).getId()==id) {
     			widgets.get(i).setWidget(widget);
-    			return widgets;
+  
     		}
     	}
-    	return null;
     }
     
     
-    public List<Widget> deleteWidget(long id) {
+    public void deleteWidget(long id) {
     	for(int i=0; i<widgets.size(); i++) {
     		if(widgets.get(i).getId()==id) {
     			widgets.remove(i);
     		}
     	}
-    	return widgets;
+
     }
     
 }

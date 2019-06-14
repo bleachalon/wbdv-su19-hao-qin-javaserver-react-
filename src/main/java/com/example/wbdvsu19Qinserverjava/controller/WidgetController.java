@@ -22,8 +22,8 @@ public class WidgetController {
     
     // POST - Creating 
     @PostMapping("/api/widgets")
-    public List<Widget> createWidget(@RequestBody Widget widget) {
-        return wid.createWidget(widget);
+    public void createWidget(@RequestBody Widget widget) {
+         wid.createWidget(widget);
     }
     
     // GET - Reading
@@ -40,15 +40,15 @@ public class WidgetController {
     
     // UPDATE - Updating
     @PutMapping("/api/widgets/{id}")
-    public List<Widget> updateWidget(@PathVariable("id") long id, @RequestBody Widget widget) {
-    	return wid.updateWidget(id, widget);
+    public void updateWidget(@PathVariable("id") long id, @RequestBody Widget widget) {
+    	 wid.updateWidget(id, widget);
     }
     
     
     // DELETE - Deleting
     @DeleteMapping("/api/widgets/{id}")
-    public List<Widget> deleteWidget(@PathVariable("id") long id){
-    	return wid.deleteWidget(id);
+    public void deleteWidget(@PathVariable("id") long id){
+    	 wid.deleteWidget(id);
     }
 }
 

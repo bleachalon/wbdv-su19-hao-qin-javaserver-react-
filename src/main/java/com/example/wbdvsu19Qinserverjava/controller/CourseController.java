@@ -23,8 +23,8 @@ public class CourseController {
     
     // POST - Creating 
     @PostMapping("/api/courses")
-    public List<Course> createCourse(@RequestBody Course course) {
-        return cou.createCourse(course);
+    public void createCourse(@RequestBody Course course) {
+         cou.createCourse(course);
     }
     
     // GET - Reading
@@ -41,14 +41,14 @@ public class CourseController {
     
     // UPDATE - Updating
     @PutMapping("/api/courses/{id}")
-    public List<Course> updateCourse(@PathVariable("id") long id, @RequestBody Course Course) {
-    	return cou.updateCourse(id, Course);
+    public void updateCourse(@PathVariable("id") long id, @RequestBody Course Course) {
+    	 cou.updateCourse(id, Course);
     }
     
     
     // DELETE - Deleting
     @DeleteMapping("/api/courses/{id}")
-    public List<Course> deleteCourse(@PathVariable("id") long id){
-    	return cou.deleteCourse(id);
+    public void deleteCourse(@PathVariable("id") long id){
+    	 cou.deleteCourse(id);
     }
 }
