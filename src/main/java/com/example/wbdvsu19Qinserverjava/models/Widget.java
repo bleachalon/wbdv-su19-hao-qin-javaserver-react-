@@ -1,35 +1,34 @@
 package com.example.wbdvsu19Qinserverjava.models;
 
-public class Widget {
-	enum WidgetDataType{
-		Integer, String, Date, Boolean
+import javax.persistence.*;
 
-	}
-	
-   String name;
-   long id;
-   WidgetType type;
-   Integer order;
-   String ordered;
-   String text;
-   String url, src;
-   Integer size;
-   Integer width,height;
-   String cssClass;
-   String style;
-   String value;
-   WidgetDataType dataType;
+@Entity
+@Table(name="Widgets")
+public class Widget {
+
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	private String name;
+	private WidgetType type;
+	private String ordered;
+	private String text;
+	private String url, src;
+	private Integer size;
+	private Integer width,height;
+	private String cssClass;
+	private String style;
+	private String value;
+
    
-   
-	public Widget() {
-		super();
-	}
+
 	
 	public void setWidget(Widget w) {
 		this.name = w.name;
 		this.id = w.id;
 		this.type = w.type;
-		this.order = w.order;
+
 		this.ordered = w.ordered;
 		this.text = w.text;
 		this.url = w.url;
@@ -39,21 +38,7 @@ public class Widget {
 		this.height = w.height;
 	}
 	
-	public Widget(String name, long id, WidgetType type, Integer order, String text, String url, Integer size,
-			Integer width, Integer height) {
-		super();
-		this.name = name;
-		this.id = id;
-		this.type = type;
-		this.order = order;
-		this.text = text;
-		this.url = url;
-		this.size = size;
-		this.width = width;
-		this.height = height;
-	}
 
-	
 
 	public String getName() {
 		return name;
@@ -70,7 +55,7 @@ public class Widget {
 	}
 
 
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -84,17 +69,6 @@ public class Widget {
 		this.type = type;
 	}
 
-
-	public Integer getOrder() {
-		return order;
-	}
-
-
-	public void setOrder(Integer order) {
-		this.order = order;
-	}
-
-	
 	public String getOrdered() {
 		return ordered;
 	}
@@ -191,16 +165,6 @@ public class Widget {
 	}
 
 
-	public WidgetDataType getDataType() {
-		return dataType;
-	}
-
-
-	public void setDataType(WidgetDataType dataType) {
-		this.dataType = dataType;
-	}
-	   
-   
    
 }
 

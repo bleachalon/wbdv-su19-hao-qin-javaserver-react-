@@ -7,15 +7,15 @@ import com.example.wbdvsu19Qinserverjava.models.Course;
 
 public class CourseService {
 	 List<Course> courses = new ArrayList<Course>();
-	 
+
 	 {
 		 courses.add(new Course(1,"CS5004", "Alan", "00-00-0000"));
 		 courses.add(new Course(2,"CS5005", "Alan", "00-00-0000"));
 		 courses.add(new Course(3,"CS5006", "Alan", "00-00-0000"));
 		 courses.add(new Course(4, "CS5007", "Alan", "00-00-0000"));
 	 }
-	 
-	 
+
+
 	 public void createCourse(Course course) {
 	    	courses.add(course);
 

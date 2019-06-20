@@ -1,26 +1,43 @@
 package com.example.wbdvsu19Qinserverjava.models;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name= "Courses")
 public class Course {
-	long id;
-	String title;
-	String author;
-	String date;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	private String title;
+	private String author;
+	private String date;
+	@OneToMany(mappedBy = "course")
+	private List<Module> Modules;
 	
-	
-	public Course(long id, String title, String author, String date) {
+	public Course(Integer id, String title, String author, String date) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.author = author;
 		this.date = date;
 	}
+
+
+	public List<Module> getModules() {
+		return Modules;
+	}
+
+	public void setModules(List<Module> modules) {
+		Modules = modules;
+	}
 	public Course() {
 		super();
 	}
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getTitle() {
