@@ -28,7 +28,6 @@ public class Widget {
 		this.name = w.name;
 		this.id = w.id;
 		this.type = w.type;
-
 		this.ordered = w.ordered;
 		this.text = w.text;
 		this.url = w.url;
@@ -50,7 +49,7 @@ public class Widget {
 	}
 
 
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 

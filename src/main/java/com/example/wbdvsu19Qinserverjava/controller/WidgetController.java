@@ -2,6 +2,8 @@ package com.example.wbdvsu19Qinserverjava.controller;
 
 import java.util.List;
 
+import com.example.wbdvsu19Qinserverjava.repositories.WidgetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,38 +19,42 @@ import com.example.wbdvsu19Qinserverjava.services.WidgetService;
 @RestController
 @CrossOrigin("*")
 public class WidgetController {
-      WidgetService wid= new WidgetService();
+
+    @Autowired
+    WidgetRepository widgetRepository;
     // CRUD
     
     // POST - Creating 
     @PostMapping("/api/widgets")
     public void createWidget(@RequestBody Widget widget) {
-         wid.createWidget(widget);
+        widgetRepository.save(widget);
     }
     
     // GET - Reading
     @GetMapping("/api/widgets")
     public List<Widget> findAllWidgets() {
-        return wid.findAllWidgets();
+        return widgetRepository.findAllWidget();
     }
     
     @GetMapping("/api/widgets/{id}")
-    public Widget findWidgetById(@PathVariable("id") long id) {
-    	return wid.findWidgetById(id);
+    public Widget findWidgetById(@PathVariable("id") Integer id) {
+    	return widgetRepository.findWidgetById(id);
     }
     
     
     // UPDATE - Updating
     @PutMapping("/api/widgets/{id}")
-    public void updateWidget(@PathVariable("id") long id, @RequestBody Widget widget) {
-    	 wid.updateWidget(id, widget);
+    public void updateWidget(@PathVariable("id") Integer id, @RequestBody Widget widget) {
+        Widget w = widgetRepository.findById(id).get();
+        w.setWidget(widget);
+        widgetRepository.save(w);
     }
     
     
     // DELETE - Deleting
     @DeleteMapping("/api/widgets/{id}")
-    public void deleteWidget(@PathVariable("id") long id){
-    	 wid.deleteWidget(id);
+    public void deleteWidget(@PathVariable("id") Integer id){
+    	 widgetRepository.deleteById(id);
     }
 }
 

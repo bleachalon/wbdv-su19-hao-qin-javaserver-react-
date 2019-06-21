@@ -55,7 +55,10 @@ public class ModuleCotroller {
 
     // DELETE - Deleting
     @DeleteMapping("/api/modules/{id}")
-    public void deleteModule(@PathVariable("id") Integer id){
+    public List<Module> deleteModule(@PathVariable("id") Integer id){
+        Module m = moduleRepository.findById(id).get();
+        Integer i= m.getCourse().getId();
         moduleRepository.deleteById(id);
+        return moduleRepository.findAllModulesForCourse(i);
     }
 }
